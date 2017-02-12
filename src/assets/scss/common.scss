@@ -1,0 +1,80 @@
+/*common*/
+
+// mixin
+@mixin transform($bc) {
+    transform: $bc;
+    -webkit-transform: $bc;
+}
+
+@mixin _flex($direction:colum) {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: $direction;
+}
+
+@mixin _grow($num:1) {
+    flex: $num;
+}
+
+@mixin box_sizing() {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+@mixin nobar($target) {
+    #{$target}::-webkit-scrollbar {
+        width: 0;
+        height: 0
+    }
+}
+
+@mixin border_none($position) {
+    @each $p in $position {
+        border-#{$p}: 0;
+    }
+}
+
+@mixin padding_none($position) {
+    @each $p in $position {
+        padding-#{$p}: 0;
+    }
+}
+
+// 占位符
+%lineto {
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #f7f7f7), color-stop(1, #eaeaea));
+}
+
+%reposition {
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+%flexmid {
+    //-webkit-align-items:center;
+    align-items: center;
+    justify-content: center;
+}
+
+%mid {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+//变量
+$round:left right top bottom;
+//counter-reset: 
+$yh:"苹方黑体",
+"Source Han Sans",
+"微软雅黑",
+"Microsoft yahei";
+@function pxToRem($px, $base: 28.125) {
+    @return ($px / $base) * 1rem;
+}
