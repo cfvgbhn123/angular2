@@ -14,6 +14,16 @@ import { 我的Component } from './我的/我的.component';
 
 const appRoutes:Routes=[
   {path:'',redirectTo:'首页',pathMatch:'full'},
+  {path:'首页',component:首页Component},
+  {
+    path:'我要买',component:我要买Component
+  },
+  {
+    path:'我要卖',component:我要卖Component
+  },
+  {
+    path:'我的',component:我的Component
+  }
 ]
 
 @NgModule({
@@ -28,7 +38,8 @@ const appRoutes:Routes=[
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
